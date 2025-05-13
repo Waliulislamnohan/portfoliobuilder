@@ -13,6 +13,11 @@ export function UnifiedMenubar() {
   const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
 
+  // Hide menubar on /portfolio/[slug] pages
+  if (/^\/portfolio\/[^/]+$/.test(pathname)) {
+    return null
+  }
+
   const routes = [
     {
       name: "Home",

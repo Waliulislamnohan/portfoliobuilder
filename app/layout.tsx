@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Portfolio Builder",
   description: "Create stunning portfolios in seconds",
-    generator: 'v0.dev'
+    generator: 'aaladin.ai'
 }
 
 export default function RootLayout({

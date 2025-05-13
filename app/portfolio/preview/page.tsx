@@ -856,6 +856,15 @@ export default function PortfolioPreview() {
   // Replace dynamic values with consistent ones
   const currentYear = useMemo(() => new Date().getFullYear(), []); // Memoize the year to avoid mismatches
 
+  // Handler for upgrading to premium
+  const handleUpgradeToPremium = () => {
+    if (!portfolioData.name) return;
+    const slug = portfolioData.name.toLowerCase().replace(/\s+/g, "-");
+    // Save portfolioData to localStorage with a unique key for the slug
+    localStorage.setItem(`portfolioData:${slug}`, JSON.stringify(portfolioData));
+    router.push(`/portfolio/${slug}`);
+  };
+
   // Render loading state
   if (loading) {
     return (
@@ -1000,6 +1009,7 @@ export default function PortfolioPreview() {
                   <Button
                     variant="outline"
                     className="w-full sm:w-auto border-indigo-200 dark:border-indigo-800 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 transition-all"
+                    onClick={handleUpgradeToPremium}
                   >
                     Upgrade to Premium
                   </Button>
@@ -1036,6 +1046,7 @@ export default function PortfolioPreview() {
                   <Button
                     variant="outline"
                     className="w-full sm:w-auto border-indigo-200 dark:border-indigo-800 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 transition-all"
+                    onClick={handleUpgradeToPremium}
                   >
                     Upgrade to Premium
                   </Button>
@@ -1808,6 +1819,7 @@ export default function PortfolioPreview() {
                     <Button
                       variant="outline"
                       className="border-indigo-200 dark:border-indigo-800 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 transition-all"
+                      onClick={handleUpgradeToPremium}
                     >
                       Upgrade to Premium
                     </Button>
@@ -1839,6 +1851,7 @@ export default function PortfolioPreview() {
                     <Button
                       variant="outline"
                       className="border-indigo-200 dark:border-indigo-800 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 transition-all"
+                      onClick={handleUpgradeToPremium}
                     >
                       Upgrade to Premium
                     </Button>
